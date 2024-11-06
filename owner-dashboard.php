@@ -31,7 +31,7 @@ $online_result = mysqli_query($connection, $online_users_query);
 $online_count = mysqli_fetch_assoc($online_result)['online_count'];
 
 // Count offline users (keep existing code)
-$offline_users_query = "SELECT COUNT(*) as offline_count FROM users WHERE status = 'offline' AND role = 'User'";
+$offline_users_query = "SELECT COUNT(*) as offline_count FROM queuing_slots WHERE is_serving = '1'";
 $offline_result = mysqli_query($connection, $offline_users_query);
 $offline_count = mysqli_fetch_assoc($offline_result)['offline_count'];
 
